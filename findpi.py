@@ -62,6 +62,6 @@ mypi = readPi()
 primes = filterPalindrome(primes(9999999),7)
 
 for i in primes:
-	if mypi.find("%d"%i):
+	if mypi.find("%d"%i)>0:
 		print i
 		break
