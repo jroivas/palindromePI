@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import math
 
 def primes(n): 
 	if n==2: return [2]
@@ -44,12 +45,13 @@ def filterPalindrome(n,minlen):
 
 def readPi():
 	# Assume we have precalc'd pi
+	# This one is from: http://www.archive.org/stream/Pi_to_100000000_places/pi.txt
 	pi = ""
 	p = open("pi.txt")
 	line = p.readline()
 	while 1:
 		if not line: break
-		pi += line.strip()
+		pi += line.strip().replace(' ','')
 		line = p.readline()
 		
 	p.close()
@@ -62,6 +64,6 @@ mypi = readPi()
 primes = filterPalindrome(primes(9999999),7)
 
 for i in primes:
-	if mypi.find("%d"%i)>0:
+	if mypi.find("%d"%i)>=0:
 		print i
 		break
