@@ -63,7 +63,12 @@ mypi = readPi()
 # Filter primes under 9999999, min length 7
 primes = filterPalindrome(primes(9999999),7)
 
+best = 99999999
+val = -1
 for i in primes:
-	if mypi.find("%d"%i)>=0:
-		print i
-		break
+	pos = mypi.find("%d"%i)
+	if pos>0 and best>pos:
+		best = pos
+		val = i
+
+print val
